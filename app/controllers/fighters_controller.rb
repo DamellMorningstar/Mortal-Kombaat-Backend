@@ -1,7 +1,7 @@
 class FightersController < ApplicationController
     def index 
-        @fighters = Fighter.all
-        # render json: fighters
+        fighters = Fighter.all
+        render json: fighters
     end
 
     def create 
