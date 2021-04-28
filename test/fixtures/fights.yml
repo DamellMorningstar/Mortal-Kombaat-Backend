@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fighter_id: 1
+  fightee_id: 1
+  wage: 1
+  fightday: 2021-04-28
+
+two:
+  fighter_id: 1
+  fightee_id: 1
+  wage: 1
+  fightday: 2021-04-28
