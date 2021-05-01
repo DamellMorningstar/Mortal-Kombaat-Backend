@@ -6,6 +6,7 @@ class FightersController < ApplicationController
 
     def create 
         fighter = Fighter.create(fighter_params)
+        render json: fighter
     end 
 
     def show  
@@ -16,6 +17,11 @@ class FightersController < ApplicationController
     def delete 
         fighter = Fighter.find(params[:fightername])
         fighter.destroy
+    end
+
+    def login
+        fighter = Fighter.first 
+        render json: fighter
     end
 
     private
