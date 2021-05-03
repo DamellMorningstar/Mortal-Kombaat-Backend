@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fightday: 2021-05-02
+  wage: 1
+  fighter: one
+  fightee: one
+
+two:
+  fightday: 2021-05-02
+  wage: 1
+  fighter: two
+  fightee: two
