@@ -6,6 +6,7 @@ class FightsController < ApplicationController
 
     def create 
         fight = Fight.create(fight_params)
+        render json: fight
     end 
 
     def show  
@@ -19,8 +20,8 @@ class FightsController < ApplicationController
         render json: fight
     end
 
-    def delete 
-        fight = Fight.find(params[:fightname])
+    def destroy 
+        fight = Fight.find(params[:id])
         fight.destroy
     end
 
