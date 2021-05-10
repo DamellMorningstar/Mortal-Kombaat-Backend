@@ -40,14 +40,38 @@ class UsersController < ApplicationController
     end
 
     def login
-        user = User.first 
-        render json: user
+        # user = User.find_by(username: params[:username]) 
+        # if user && user.authenticate(params[:password])
+        # render json: user
+        # else 
+        #     render json: {errors: ["invaild username or password"]}, status: :unauthorized
+        # end
+        user = User.first
+        render json:user
+    end
+
+    def me 
+        user = User.first
+        render json:user
+    end
+
+    def signup 
+        user_params = params.permit(:username, :password, :image,:weightclass,:cellnum,:fightstyle)
+     
+        user = User.create(user_params)
+
+            if user.valid?
+         render json:user, status: :created
+            else
+       render json: { errors: user.errors.full_messages}, status: :unprocessable_entity
+
+            end
     end
 
     private
 
     def user_params
-        params.require(:user).permit(:username, :password_digest, :fightstyle, :cellnum, :weightclass, :image)
+        params.require(:user).permit(:username, :password, :fightstyle, :cellnum, :weightclass, :image)
     end
 
 end
