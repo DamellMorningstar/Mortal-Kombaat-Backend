@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+before_action :authenticate 
 
 
     def index
@@ -40,14 +40,15 @@ class UsersController < ApplicationController
     end
 
     def login
-        # user = User.find_by(username: params[:username]) 
-        # if user && user.authenticate(params[:password])
-        # render json: user
-        # else 
-        #     render json: {errors: ["invaild username or password"]}, status: :unauthorized
-        # end
-        user = User.first
-        render json:user
+    #   user = User.first  
+    #   render json: user
+        user = User.find_by(username: params[:username])
+        
+        if user && user.authenticate(params[:password])
+            render json: user
+        else
+        render json: {errors: ["invaild username or password"]}, status: :unauthorized
+        end
     end
 
     def me 
