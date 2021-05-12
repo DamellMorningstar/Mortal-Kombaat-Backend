@@ -40,15 +40,15 @@ before_action :authenticate
     end
 
     def login
-    #   user = User.first  
-    #   render json: user
-        user = User.find_by(username: params[:username])
+      user = User.last  
+      render json: user
+        # user = User.find_by(username: params[:username])
         
-        if user && user.authenticate(params[:password])
-            render json: user
-        else
-        render json: {errors: ["invaild username or password"]}, status: :unauthorized
-        end
+        # if user && user.authenticate(params[:password])
+        #     render json: user
+        # else
+        # render json: {errors: ["invaild username or password"]}, status: :unauthorized
+        # end
     end
 
     def me 
